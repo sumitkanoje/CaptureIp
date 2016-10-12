@@ -1,0 +1,4 @@
+https://google.comAsyncHttpClientConfig cf = new DefaultAsyncHttpClientConfig.Builder()
+    .setProxyServer(new ProxyServer.Builder("127.0.0.1", 38080)).build();10.1.1.9
+AsyncHttpClientConfig cf = new DefaultAsyncHttpClientConfig.Builder()
+AsyncHttpClient c = new DefaultAsyncHttpClient(cf);10.1.1.9

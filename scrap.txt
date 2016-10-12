@@ -1,0 +1,24 @@
+public static void listDirRecursive(File dir) throws IOException {
+		HashMap<String, Object> matched = new HashMap<String, Object>();
+		
+		File[] files = dir.listFiles();
+		for (File file : files) {
+			if (file.isDirectory()) {
+				//System.out.println("directory:" + file.getCanonicalPath());
+				listDirRecursive(file);
+			} else {
+				//System.out.println("     file:" + file.getCanonicalPath());
+				try {
+					List<Object> values = new ArrayList<Object>(Utilities.scanFile(file.getAbsolutePath()).values());
+					matched.put(file.getName(), values.get(0));
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		
+	}
+	
